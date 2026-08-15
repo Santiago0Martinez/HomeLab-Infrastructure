@@ -1,0 +1,69 @@
+services:
+  # 1. Dashboard Principal (Nave espaci
+  flame:
+    image: pawelmalak/flame:latest
+    container_name: flame
+    volumes:
+      - ~/homelab/flame:/app/data
+    ports:
+      - "5005:5005"
+    environment:
+      - PASSWORD=adminflame
+    restart: unless-stopped
+
+  # 3. Base de Datos de Notas para Clases
+  trilium:
+    image: zadam/trilium:latest
+    container_name: trilium
+    restart: unless-stopped
+    ports: ["8082:8080"]
+    volumes:
+      - ./trilium-data:/home/node/trilium-data
+
+  # 4. Bloqueador de Anuncios y DNS
+  adguardhome:
+    image: adguard/adguardhome:latest
+    container_name: adguardhome
+    restart: unless-stopped
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+      - "8081:80"
+      - "3001:3000"
+    volumes:
+      - ./adguard/work:/opt/adguardhome/work
+      - ./adguard/conf:/opt/adguardhome/conf
+
+  # 5. Micro-Notas rápidas y Snippets de Código
+  memos:
+    image: ghcr.io/usememos/memos:latest
+    container_name: memos
+    restart: unless-stopped
+    ports: ["5230:5230"]
+    volumes:
+      - ./memos-data:/var/opt/memos
+
+  # 6. Caja de Herramientas para Devs
+  it-tools:
+    image: corentinth/it-tools:latest
+    container_name: it-tools
+    restart: unless-stopped
+    ports: ["8083:80"]
+
+  # 7. Gestor de Contraseñas (Vaultwarden)
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    ports: ["8084:80"]
+    volumes:
+      - ./vaultwarden-data:/data
+
+  # 8. Monitoreo de Red y Servicios
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    restart: unless-stopped
+    ports: ["3002:3001"]
+    volumes:
+      - ./uptime-kuma-data:/app/data

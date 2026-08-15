@@ -1,0 +1,22 @@
+# Excluir todas las carpetas de datos de servicios
+*-data/
+archivos/
+adguard/work/
+vaultwarden-data/
+memos-data/
+trilium-data/
+uptime-kuma-data/
+
+# Variables de entorno y llaves
+.env
+*.env
+*.key
+*.pem
+
+# Archivos de base de datos
+*.db
+*.sqlite
+*.sqlite3
+*.log
+adguard/
+flame/.secret

@@ -1,0 +1,25 @@
+- Homelab HP:
+    - AdGuard Home:
+        icon: adguard-home.png
+        href: http://192.168.100.15:8081
+        description: Bloqueador de red
+    - Filebrowser:
+        icon: filebrowser.png
+        href: http://192.168.100.15:8080
+        description: Nube privada
+    - Trilium:
+        icon: trilium.png
+        href: http://192.168.100.15:8082
+        description: Base de apuntes
+    - Memos:
+        icon: memos.png
+        href: http://192.168.100.15:5230
+        description: Notas rápidas y código
+    - Uptime Kuma:
+        icon: uptime-kuma.png
+        href: http://192.168.100.15:3002
+        description: Monitoreo
+    - IT-Tools:
+        icon: it-tools.png
+        href: http://192.168.100.15:8083
+        description: Navaja suiza Dev
