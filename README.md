@@ -40,8 +40,6 @@ Para mantener el control del homelab directamente desde la terminal del servidor
 
 ---
 
-## Estructura del Repositorio
-
 .
 ├── docker-compose.yml        # Orquestación principal de servicios
 ├── .env.example              # Plantilla de variables de entorno requeridas
