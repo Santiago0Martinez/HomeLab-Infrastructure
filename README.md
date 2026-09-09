@@ -9,7 +9,22 @@ Infraestructura personal basada en contenedores Docker para gestión de red, mon
 
 ---
 
-##  Arquitectura y Servicios
+## 🚀 Comandos Útiles & Gestión (Bash)
+
+Para mantener el control del homelab directamente desde la terminal del servidor, se utiliza el siguiente flujo de comandos:
+
+* **Ver el estado general del servidor y contenedores activos:**
+  `homelab status`
+* **Actualizar y levantar los servicios en segundo plano:**
+  `docker compose up -d`
+* **Apagar toda la infraestructura:**
+  `docker compose down`
+* **Detener y eliminar un contenedor específico (ej. cloudflared):**
+  `docker stop cloudflared-tunnel && docker rm cloudflared-tunnel`
+
+---
+
+## Arquitectura y Servicios
 
 | Servicio | Categoría | Puerto Local | Descripción |
 | :--- | :--- | :--- | :--- |
@@ -27,7 +42,6 @@ Infraestructura personal basada en contenedores Docker para gestión de red, mon
 
 ## Estructura del Repositorio
 
-```text
 .
 ├── docker-compose.yml        # Orquestación principal de servicios
 ├── .env.example              # Plantilla de variables de entorno requeridas
